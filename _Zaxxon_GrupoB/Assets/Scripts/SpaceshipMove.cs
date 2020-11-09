@@ -14,8 +14,6 @@ public class SpaceshipMove : MonoBehaviour
     //Variable que determina cómo de rápido se mueve la nave con el joystick
     //De momento fija, ya veremos si aumenta con la velocidad o con powerUps
     private float moveSpeed = 3f;
-    private bool inMarginMoveX = true;
-    private bool inMarginMoveY = true;
 
     //Capturo el texto del UI que indicará la distancia recorrida
     [SerializeField] Text TextDistance;
@@ -74,53 +72,9 @@ public class SpaceshipMove : MonoBehaviour
 
         //Movemos la nave mediante el método transform.translate
         //Lo multiplicamos por deltaTime, el eje y la velocidad de movimiento la nave
-        float myPosX = transform.position.x;
-        float myPosY = transform.position.y;
+        transform.Translate(Vector3.right * Time.deltaTime * moveSpeed * desplX);
+        transform.Translate(Vector3.up * Time.deltaTime * moveSpeed * desplY);
 
-        if (myPosX < -4.5 && desplX < 0)
-        {
-            inMarginMoveX = false;
-        }
-        else if (myPosX < -4.5 && desplX > 0)
-        {
-            inMarginMoveX = true;
-        }
-        else if (myPosX > 4.5 && desplX > 0)
-        {
-            inMarginMoveX = false;
-        }
-        else if (myPosX > 4.5 && desplX < 0)
-        {
-            inMarginMoveX = true;
-        }
-        //Retricción en Y
-        if (myPosY < -0 && desplY < 0)
-        {
-            inMarginMoveY = false;
-        }
-        else if (myPosY < -0 && desplY > 0)
-        {
-            inMarginMoveY = true;
-        }
-        else if (myPosY > 4 && desplY > 0)
-        {
-            inMarginMoveY = false;
-        }
-        else if (myPosY > 4 && desplY < 0)
-        {
-            inMarginMoveY = true;
-        }
-
-        //Si estoy en los márgenes, me muevo
-        if (inMarginMoveX)
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * moveSpeed * desplX);
-
-        }
-        if (inMarginMoveY)
-        {
-            transform.Translate(Vector3.up * Time.deltaTime * moveSpeed * desplY);
-        }
-
+        
     }
 }
