@@ -55,7 +55,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -123,7 +122,7 @@ Transform:
   m_GameObject: {fileID: 2954387212278473387}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.17940797, y: -0.937252, z: 5.78}
-  m_LocalScale: {x: 1, y: 7.1956, z: 1}
+  m_LocalScale: {x: 0.83172, y: 5.9847245, z: 0.83172}
   m_Children:
   - {fileID: 8180559277278672062}
   - {fileID: 4313313841007442097}
@@ -152,7 +151,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -198,12 +196,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2954387212278473387}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ceca0282428b2946aa4f9d9584c75ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
+  SpaceShip: {fileID: -927199367670048503, guid: 878e78b071c797a4cbe9873530d1d4c7,
+    type: 3}
 --- !u!1 &3024237861278746713
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +258,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

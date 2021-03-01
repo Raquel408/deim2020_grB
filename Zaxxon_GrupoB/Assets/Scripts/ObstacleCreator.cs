@@ -16,18 +16,26 @@ public class ObstacleCreator : MonoBehaviour
     private float randomNumber;
     Vector3 RandomPos;
 
-    //Distancia a la que se crean las columnas iniciales
-    [SerializeField] float distanciaInicial = 5;
+    //Distancia entre columnas
+    float distanciaSep = 6f;
+
+    //Acceder a los componentes de la nave
+    public GameObject Nave;
+    private SpaceshipMove spaceshipMove;
 
     // Start is called before the first frame update
     void Start()
     {
 
+        //Accedo al script de la nave
+        spaceshipMove = Nave.GetComponent<SpaceshipMove>();
+
         //Creo las columnas iniciales
-        for (int n = 1; n <= 30; n++)
+        for (int n = 1; n <= 10; n++)
         {
 
-            CrearColumna(-n * distanciaInicial);
+            //Creamos cada columna, con la separación establecida
+            CrearColumna(-n * distanciaSep);
         }
 
 
@@ -37,9 +45,10 @@ public class ObstacleCreator : MonoBehaviour
     }
 
     //Función que crea una columna en una posición Random
+    //Lo hemos cambiado para que se le pueda pasar el valor en X (0 por defecto)
     void CrearColumna(float posZ = 0f)
     {
-        randomNumber = Random.Range(0f, 7f);
+        randomNumber = Random.Range(0f, 14f);
         RandomPos = new Vector3(randomNumber, 0, posZ);
         //print(RandomPos);
         Vector3 FinalPos = InitPos.position + RandomPos;
@@ -47,13 +56,15 @@ public class ObstacleCreator : MonoBehaviour
     }
 
     //Corrutina que se ejecuta cada segundo
-    //NOTA: habría que cambiar ese segundo por una variable que dependa de la velocidad
+    //NOTA: ahora el intervalo de la corrutina depende de la variable "speed" de la nave
+    //Aplicamos la fórmula "espacioEntreColumnas / velocidad"
     IEnumerator InstanciadorColumnas()
     {
         //Bucle infinito (poner esto es lo mismo que while(true){}
         for (; ; )
         {
             CrearColumna();
+            float interval = distanciaSep / spaceshipMove.speed;
             yield return new WaitForSeconds(1f);
         }
 

@@ -3,7 +3,10 @@ guid: dd3162be4fe779c4bb1d7a4914ec12b3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Columna: {instanceID: 0}
+  - InitPos: {instanceID: 0}
+  - Nave: {fileID: -927199367670048503, guid: 878e78b071c797a4cbe9873530d1d4c7, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
